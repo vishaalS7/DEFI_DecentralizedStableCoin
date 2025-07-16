@@ -75,7 +75,7 @@ contract DSCEngine is ReentrancyGuard {
         s_collateralDeposited[msg.sender][_tokenCollateralAddress] += _amountCollateral;
         emit collateralDeposited(msg.sender, _tokenCollateralAddress, _amountCollateral);
         bool success = IERC20(_tokenCollateralAddress).transferFrom(msg.sender, address(this), _amountCollateral);
-        if (!success){
+        if (!success) {
             revert DSCEngine__TransferFailed();
         }
     }
